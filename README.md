@@ -1,103 +1,131 @@
-Time Complexity Analyzer API
+# Time Complexity Analyzer API
 
-This project is a simple Flask API that measures how long different algorithms take to run as the input size increases. It also creates a graph to show the performance and returns the graph as a Base64-encoded image in JSON format.
+A simple Flask API that measures how long different algorithms take to run as the input size increases. It also generates a graph to visualize the performance and returns the graph as a Base64-encoded image in JSON format.
 
-Features
+---
 
-Supports multiple algorithms:
+## Features
 
-Bubble Sort
+- Supports multiple algorithms:
+  - Bubble Sort
+  - Linear Search
+  - Binary Search
+  - Nested Loops
+- Uses query parameters to control:
+  - Algorithm selection
+  - Maximum input size (`n`)
+  - Number of steps (`steps`)
+- Measures execution time for different input sizes
+- Generates a performance graph using Matplotlib
+- Returns results and the graph as JSON data
 
-Linear Search
+---
 
-Binary Search
+## Technologies Used
 
-Nested Loops
+- Python 3  
+- Flask  
+- Matplotlib  
+- NumPy  
+- Base64  
 
-Uses query parameters to control:
+---
 
-The algorithm to run
+## Project Structure
 
-The maximum input size (n)
-
-The number of steps (steps)
-
-Measures execution time for different input sizes
-
-Generates a performance graph using Matplotlib
-
-Returns results and the graph as JSON data
-
-Technologies Used
-
-Python 3
-
-Flask
-
-Matplotlib
-
-NumPy
-
-Base64
-
-Project Structure
+```
 home_activity/
-├── app.py           # Flask application
-├── factorial.py     # Algorithm implementations (provided externally)
-├── venv/            # Virtual environment (not committed)
-├── README.md        # Project documentation
+├── app.py
+├── factorial.py
+├── venv/
+├── README.md
 └── .gitignore
+```
 
-Setup Instructions
-Clone the repository
+---
+
+## Setup Instructions
+
+### Clone the Repository
+
+```bash
 git clone <your-repo-url>
 cd home_activity
+```
 
-Create and activate a virtual environment (Windows)
+---
+
+### Create and Activate a Virtual Environment (Windows)
+
+```powershell
 python -m venv venv
 venv\Scripts\activate
+```
 
-Install dependencies
+---
+
+### Install Dependencies
+
+```powershell
 pip install flask matplotlib numpy
+```
 
-Running the Application
+---
+
+## Running the Application
+
+```powershell
 python app.py
-
+```
 
 The server runs on:
 
+```
 http://localhost:3000
+```
 
-API Endpoints
-Status Check
+---
 
-GET /status
+## API Endpoints
 
-Response:
+### Status Check
 
+**GET** `/status`
+
+```json
 {
   "app": "time-complexity-analyzer",
   "status": "running"
 }
+```
 
-Runtime Measurement Endpoint
+---
 
-GET /analyze
+### Runtime Endpoint
 
-Query Parameters:
+**GET** `/analyze`
 
-Parameter	Type	Required	Description
-algo	string	No	Algorithm to run (bubble, linear, binary, nested). Defaults to bubble.
-n	integer	Yes	Maximum input size
-steps	integer	Yes	Number of input size intervals
+#### Query Parameters
 
-Example request:
+| Parameter | Required | Description |
+|----------|----------|-------------|
+| `algo` | No | Algorithm to run (`bubble`, `linear`, `binary`, `nested`) |
+| `n` | Yes | Maximum input size |
+| `steps` | Yes | Number of input size intervals |
 
+---
+
+#### Example Request
+
+```
 /analyze?algo=bubble&n=100&steps=5
+```
 
+---
 
-Example response (shortened):
+#### Example Response (Shortened)
 
+```json
 {
   "algorithm": "bubble",
   "n": 100,
@@ -107,11 +135,16 @@ Example response (shortened):
   "total_time_seconds": 0.45,
   "graph_image_base64": "iVBORw0KGgoAAAANSUhEUgAA..."
 }
+```
 
-Viewing the Graph Image
+---
+
+## Viewing the Graph Image
 
 The graph is returned as a Base64-encoded PNG string.
 
-To view the image, copy the Base64 string and paste it in your browser like this:
+To view the image, copy the Base64 string and paste it into your browser:
 
+```
 data:image/png;base64,<PASTE_BASE64_STRING_HERE>
+```
