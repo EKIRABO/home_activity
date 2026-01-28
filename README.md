@@ -2,8 +2,6 @@
 
 A simple Flask API that measures how long different algorithms take to run as the input size increases. It also generates a graph to visualize the performance and returns the graph as a Base64-encoded image in JSON format.
 
----
-
 ## Features
 
 - Supports multiple algorithms:
