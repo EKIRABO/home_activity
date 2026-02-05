@@ -134,6 +134,54 @@ http://localhost:3000
   "graph_image_base64": "iVBORw0KGgoAAAANSUhEUgAA..."
 }
 ```
+---
+
+### POST /save_analysis
+
+Saves an analysis result to the database.
+
+Request Body:
+{
+  "algo": "bubble",
+  "items": 100,
+  "steps": 5,
+  "start_time": 1700000000000,
+  "end_time": 1700000000450,
+  "total_time_ms": 450,
+  "time_complexity": "O(n²)",
+  "graph_data": "BASE64_IMAGE_STRING"
+}
+
+Response:
+{
+  "status": "success",
+  "analysis_id": 1
+}
+
+---
+
+### GET /retrieve_analysis
+
+Retrieves a previously saved analysis by ID.
+
+Query Parameters:
+- id (required): Analysis ID
+
+Example Request:
+/retrieve_analysis?id=1
+
+Response:
+{
+  "analysis_id": 1,
+  "algo": "bubble",
+  "items": 100,
+  "steps": 5,
+  "start_time": 1700000000000,
+  "end_time": 1700000000450,
+  "total_time_ms": 450,
+  "time_complexity": "O(n²)",
+  "graph_data": "iVBORw0KGgoAAAANSUhEUgAA..."
+}
 
 ---
 
