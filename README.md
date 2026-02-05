@@ -121,7 +121,7 @@ http://localhost:3000
 
 ---
 
-#### Example Response (Shortened)
+#### Example Response
 
 ```json
 {
@@ -141,6 +141,7 @@ http://localhost:3000
 Saves an analysis result to the database.
 
 Request Body:
+```json
 {
   "algo": "bubble",
   "items": 100,
@@ -151,13 +152,14 @@ Request Body:
   "time_complexity": "O(n²)",
   "graph_data": "BASE64_IMAGE_STRING"
 }
-
+```
 Response:
+```json
 {
   "status": "success",
   "analysis_id": 1
 }
-
+```
 ---
 
 ### GET /retrieve_analysis
@@ -171,6 +173,7 @@ Example Request:
 /retrieve_analysis?id=1
 
 Response:
+```json
 {
   "analysis_id": 1,
   "algo": "bubble",
@@ -182,7 +185,7 @@ Response:
   "time_complexity": "O(n²)",
   "graph_data": "iVBORw0KGgoAAAANSUhEUgAA..."
 }
-
+```
 ---
 
 ## Viewing the Graph Image
