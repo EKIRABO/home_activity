@@ -139,9 +139,9 @@ http://localhost:3000
 ### POST /save_analysis
 
 Saves an analysis result to the database.
-
-Request Body:
 ```json
+Request Body:
+
 {
   "algo": "bubble",
   "items": 100,
@@ -172,8 +172,9 @@ Query Parameters:
 Example Request:
 /retrieve_analysis?id=1
 
-Response:
 ```json
+Response:
+
 {
   "analysis_id": 1,
   "algo": "bubble",
