@@ -7,5 +7,6 @@ lists.py
 matrix_test.py
 __pycache__/
 *.pyc
+.env
 
 
